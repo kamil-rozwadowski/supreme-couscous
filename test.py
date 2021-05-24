@@ -1,6 +1,5 @@
 print('testujemy gita')
 print("pomyśl liczbe z zakresu 1 - 100")
-https://github.com/kazbiel/supreme-couscous.git
 def referencja(p,k):
     i = 0
     s=int((p+k)/2)
