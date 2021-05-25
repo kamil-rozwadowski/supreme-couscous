@@ -1,5 +1,5 @@
 import random
-#cos
+
 slowo=input("Podaj słowo: \n")
 dlugosc=len(slowo)
 dlugosc_minus=dlugosc*-1
