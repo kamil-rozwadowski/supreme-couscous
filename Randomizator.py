@@ -23,3 +23,5 @@ for i in a:
 
 
     licznik+=1
+
+a=input("Kliknij Enter żeby zakończyć program")
