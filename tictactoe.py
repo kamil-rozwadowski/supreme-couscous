@@ -67,6 +67,7 @@ def pc_move(board):
 
 
 def main():
+    help()
     board = [empty, empty, empty, empty, empty, empty, empty, empty, empty]
     turn = start()
     end = 0
