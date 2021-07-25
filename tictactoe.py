@@ -83,12 +83,18 @@ def main():
             if board[row[0]] == board[row[1]] == board[row[2]] !=empty:
                 if board[row[0]] == X:
                     end = 1
+                    break
                 else:
                     end = 2
+                    break
+        if empty not in board:
+            end = 3
     if end == 1:
         print('NICE YOU WIN')
     elif end == 2:
         print('OHHHHHHHHH YOU ARE LOOOOOOSER')
+    else:
+        print('It is tie')
 main()
 
 input('press enter to exit')
