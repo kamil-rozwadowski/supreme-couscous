@@ -78,22 +78,22 @@ def pc_move(board,lvl=2):
             elif ((board[row[0]] == board[row[2]]== O) and (board[row[1]] == empty)):
                 board[row[1]] = O
                 return board
-            elif ((board[row[0]] == board[row[1]] == X) and (board[row[2]] == empty)):
+        for row in win_move:
+            if ((board[row[0]] == board[row[1]] == X) and (board[row[2]] == empty)):
                 board[row[2]] = O
                 return board
             elif( (board[row[1]] == board[row[2]]== X) and (board[row[0]] == empty)):
                 board[row[0]] = O
                 return board
-            elif ((board[row[0]] == board[row[2]]==X) and (board[row[1]] == empty)):
+            elif ((board[row[0]] == board[row[2]]== X) and (board[row[1]] == empty)):
                 board[row[1]] = O
                 return board
-            else:
-                best_moves=[4,0,2,6,8,1,3,5,7]
-                for move in best_moves:
-                    if board[move] == " ":
-                        if board[move] == " ":
-                            board[move] = O
-                            return board
+        best_moves=[4,0,2,6,8,1,3,5,7]
+        for move in best_moves:
+            if board[move] == " ":
+                if board[move] == " ":
+                    board[move] = O
+                    return board
 
 
 
@@ -120,7 +120,7 @@ def main():
                 else:
                     end = 2
                     break
-        if empty not in board:
+        if empty  not in board and end == 0:
             end = 3
     if end == 1:
         print('NICE YOU WIN')
