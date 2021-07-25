@@ -45,7 +45,7 @@ def start():
         return 0
     else:
         print("Wrong answer try again")
-        start()
+        return start()
 
 
 def move(board):
@@ -57,13 +57,45 @@ def move(board):
         else:
             print('This square is taken')
             move = int(input('Where you wanna do your move ?\n'))
-def pc_move(board):
-    while 0 < 1:
-        move = random.randint(0,8)
-        if board[move] == " ":
+def pc_move(board,lvl=2):
+    win_move = ((0, 3, 6), (1, 4, 7), (2, 5, 8), (3, 4, 5), (0, 1, 2), (6, 7, 8), (0, 4, 8), (2, 4, 6))
+    if lvl == 1:
+        while 0 < 1:
+            move = random.randint(0,8)
             if board[move] == " ":
-                board[move] = O
+                if board[move] == " ":
+                    board[move] = O
+                    return board
+    elif lvl == 2:
+        board = board[:]
+        for row in win_move:
+            if ((board[row[0]] == board[row[1]] == O) and (board[row[2]] == empty)):
+                board[row[2]] = O
                 return board
+            elif( (board[row[1]] == board[row[2]]== O) and (board[row[0]] == empty)):
+                board[row[0]] = O
+                return board
+            elif ((board[row[0]] == board[row[2]]== O) and (board[row[1]] == empty)):
+                board[row[1]] = O
+                return board
+            elif ((board[row[0]] == board[row[1]] == X) and (board[row[2]] == empty)):
+                board[row[2]] = O
+                return board
+            elif( (board[row[1]] == board[row[2]]== X) and (board[row[0]] == empty)):
+                board[row[0]] = O
+                return board
+            elif ((board[row[0]] == board[row[2]]==X) and (board[row[1]] == empty)):
+                board[row[1]] = O
+                return board
+            else:
+                best_moves=[4,0,2,6,8,1,3,5,7]
+                for move in best_moves:
+                    if board[move] == " ":
+                        if board[move] == " ":
+                            board[move] = O
+                            return board
+
+
 
 
 def main():
@@ -72,11 +104,12 @@ def main():
     turn = start()
     end = 0
     win_move=((0,3,6),(1,4,7),(2,5,8),(3,4,5),(0,1,2),(6,7,8),(0,4,8),(2,4,6))
+    lvl=int(input('Choose difficulty: 1 - easy, 2 - medium \n'))
     while end == 0:
         if turn == 1:
             board = move(board)
         else:
-            board = pc_move(board)
+            board = pc_move(board,lvl)
         board_print(board)
         turn = change_turn(turn)
         for row in win_move:
