@@ -125,7 +125,7 @@ def main():
     if end == 1:
         print('NICE YOU WIN')
     elif end == 2:
-        print('OHHHHHHHHH YOU ARE LOOOOOOSER')
+        print('OHHHHHHHHH YOU ARE A LOOOOOOSER')
     else:
         print('It is tie')
 main()
